@@ -2,51 +2,28 @@ import mongoose, { model } from "mongoose";
 
 const { Schema } = mongoose;
 
-const EmployeeSchema = new Schema({
-  department: {
-    type: String,
-    required: true,
-  },
+const UserSchema = new Schema({
+  department: { type: String },
   empname: {
     type: String,
     required: true,
   },
-  mobile: {
-    type: String,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  joindate: {
-    type:String,
-    required: true,
-  },
+  mobile: { type: Number },
+  gender: { type: String },
+  joindate: { type: Date },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  salary: {
-    type: Number,
-    required: true,
-  },
+  salary: { type: Number },
   password: {
     type: String,
     required: true,
   },
-  active: {
-    type: Boolean,
-    default: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
+  active: { type: Boolean },
 });
 
-const Employee = model("employees", EmployeeSchema); // Updated model name
-Employee.createIndexes();
-
-export default Employee;
+const EmpUser = model("employees", UserSchema);
+EmpUser.createIndexes();
+export default EmpUser;

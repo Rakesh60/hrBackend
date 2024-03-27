@@ -1,7 +1,7 @@
 import connectToMongo from "./database/db.js";
 import express from "express";
 import auth from "./routes/auth.js";
-// import employee from "./routes/employee.js";
+import employee from "./routes/employee.js";
 import notes from "./routes/notes.js";
 import cors from "cors";
 
@@ -17,8 +17,8 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json("eNotebook Backend API");
 });
-// app.use("api/employee",employee)
 app.use("/api/auth", auth);
+app.use("/api/emp", employee);
 app.use("/api/notes", notes);
 
 app.listen(port, () => {
