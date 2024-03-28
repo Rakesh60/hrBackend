@@ -22,7 +22,7 @@ router.post("/signup", async (req, res) => {
   } = req.body;
   try {
     // Validation
-    if (!empname || !email || !password) {
+    if (!email || !password) {
       return res
         .status(400)
         .json({ error: "All Fields Are Required please fill all" });
