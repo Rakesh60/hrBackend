@@ -120,5 +120,15 @@ router.get("/getuser", fetchUser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+// Route to get all employees
+router.get("/getallemployees", async (req, res) => {
+  try {
+    const employees = await EmpUser.find();  // Exclude passwords for security
+    res.send(employees);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 export default router;

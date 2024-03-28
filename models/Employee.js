@@ -21,7 +21,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  active: { type: Boolean },
+  active: { type: Boolean,default:false},
 });
 
 const EmpUser = model("employees", UserSchema);
